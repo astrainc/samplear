@@ -4,7 +4,10 @@
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs>
+    <a-scene
+    vr-mode-ui="enabled: false;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"> <!-- シーン全体を設定 -->
       <!-- マーカー1 -->
       <a-nft
         type="nft"
@@ -13,8 +16,8 @@
         smoothCount="10"
         smoothTolerance="0.01"
         smoothThreshold="5">
-        <a-video 
-          src="#video1"
+        <a-video
+          id="video-plane1"
           width="1"
           height="0.6"
           position="0 0 0">
@@ -29,8 +32,8 @@
         smoothCount="10"
         smoothTolerance="0.01"
         smoothThreshold="5">
-        <a-video 
-          src="#video2"
+        <a-video
+          id="video-plane2"
           width="1"
           height="0.6"
           position="0 0 0">
@@ -41,7 +44,7 @@
       <a-entity camera></a-entity>
     </a-scene>
 
-    <!-- ビデオ要素 -->
+    <!-- 非表示のビデオ要素 -->
     <video id="video1" src="bigbuckbunny2025.mp4" autoplay loop muted playsinline style="display:none;"></video>
     <video id="video2" src="video2.mp4" autoplay loop muted playsinline style="display:none;"></video>
 
@@ -49,3 +52,4 @@
     <script src="ar-video-setup.js"></script>
   </body>
 </html>
+
